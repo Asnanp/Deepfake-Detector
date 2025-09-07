@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepFake Detector - AI-Powered Image Analysis</title>
+    <meta name="description" content="Professional AI-powered deepfake detection for images">
+    
+    <!-- Clean Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%236366f1'/%3E%3Cpath d='M30 50 L45 65 L70 35' stroke='white' stroke-width='8' fill='none'/%3E%3C/svg%3E">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Simple Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-shield-alt"></i>
+                <span>DeepFake Detector</span>
+            </div>
+            <div class="nav-info">
+                <span class="nav-status" id="navStatus">Ready</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Header -->
+            <div class="header">
+                <h1 class="title">AI-Powered DeepFake Detection</h1>
+                <p class="subtitle">Upload an image to analyze if it's real or AI-generated</p>
+            </div>
+
+            <!-- Upload Area -->
+            <div class="upload-section">
+                <div id="uploadArea" class="upload-area">
+                    <div class="upload-content">
+                        <div class="upload-icon">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                        </div>
+                        <h3 class="upload-title">Drop your image here</h3>
+                        <p class="upload-subtitle">or <span class="upload-link">click to browse</span></p>
+                        <div class="upload-info">
+                            <span>Supports: JPG, PNG, WebP</span>
+                            <span>Max size: 50MB</span>
+                        </div>
+                    </div>
+                    <input type="file" id="fileInput" accept="image/*" hidden>
+                </div>
+            </div>
+
+            <!-- Preview Section -->
+            <div id="previewSection" class="preview-section" style="display: none;">
+                <div class="preview-card">
+                    <h3 class="preview-title">Image Preview</h3>
+                    <div id="previewContainer" class="preview-container">
+                        <!-- Preview will be inserted here -->
+                    </div>
+                    <div id="fileInfo" class="file-info">
+                        <!-- File details will be inserted here -->
+                    </div>
+                    <button class="analyze-btn" onclick="deepFakeDetector.analyzeImage()">
+                        <i class="fas fa-search"></i>
+                        Analyze Image
+                    </button>
+                </div>
+            </div>
+
+            <!-- Loading Section -->
+            <div id="loadingSection" class="loading-section" style="display: none;">
+                <div class="loading-card">
+                    <div class="loading-spinner"></div>
+                    <h3 class="loading-title">Analyzing Image...</h3>
+                    <p class="loading-text">AI is processing your image to detect deepfake patterns</p>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div id="resultsSection" class="results-section" style="display: none;">
+                <div class="results-card">
+                    <h3 class="results-title">Analysis Results</h3>
+                    
+                    <div class="verdict-section">
+                        <div class="verdict-badge" id="verdictBadge">Analyzing...</div>
+                        <div class="confidence-display">
+                            <div class="confidence-label">Confidence</div>
+                            <div class="confidence-value" id="confidenceValue">--</div>
+                        </div>
+                    </div>
+                    
+                    <div class="results-details">
+                        <div class="detail-row">
+                            <span class="detail-label">Prediction:</span>
+                            <span class="detail-value" id="predictionValue">--</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Processing Time:</span>
+                            <span class="detail-value" id="processingTime">--</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Model:</span>
+                            <span class="detail-value">Hugging Face AI</span>
+                        </div>
+                    </div>
+                    
+                    <button class="new-analysis-btn" onclick="deepFakeDetector.resetAnalysis()">
+                        <i class="fas fa-plus"></i>
+                        Analyze Another Image
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Simple Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>DeepFake Detector</span>
+                </div>
+                <div class="footer-info">
+                    <p>Powered by AI • Professional DeepFake Detection</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
